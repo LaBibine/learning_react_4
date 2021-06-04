@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar'
+import TableExample from './TableExample'
 
 
 const PRODUCTS = [
@@ -42,16 +43,17 @@ function ProductTable ({inStockOnly, filterText}) {
     }
     rows.push(<ProductRow key={product.name} product={product}/>)
   })
-  return <table className="table">
-    <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Prix</th>
-        </tr>
-    </thead>
-    <tbody>{rows}</tbody>
-
-  </table>
+  return (
+    <table className="table">
+      <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+          </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  )
 }
 
 class FilterableProductTable extends React.Component {
@@ -87,6 +89,7 @@ class FilterableProductTable extends React.Component {
       filterText={this.state.filterText}
       inStockOnly={this.state.inStockOnly}
     />
+    <TableExample />;
     </>
   }
 }
