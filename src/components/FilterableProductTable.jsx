@@ -25,7 +25,7 @@ function ProductCategoryRow ({category}) {
   </tr>
 }
 
-function ProductTable (inStockOnly, filterText) {
+function ProductTable ({inStockOnly, filterText}) {
   const rows = []
   let lastCategory = null
   PRODUCTS.forEach(product => {
@@ -33,6 +33,7 @@ function ProductTable (inStockOnly, filterText) {
     (inStockOnly && !product.stocked) 
     || product.name.indexOf(filterText) === -1
     ){
+      return
     }
 
     if (product.category !== lastCategory) {
