@@ -33,7 +33,6 @@ function ProductTable (inStockOnly, filterText) {
     (inStockOnly && !product.stocked) 
     || product.name.indexOf(filterText) === -1
     ){
-      return
     }
 
     if (product.category !== lastCategory) {
@@ -66,21 +65,20 @@ class FilterableProductTable extends React.Component {
   }
 
   handleFilterTextChange (filterText) {
-    this.state({filterText})
+    this.setState({filterText})
   }
 
   handleInStockChange (inStockOnly) {
-    this.state({inStockOnly})
+    this.setState({inStockOnly})
   }
 
   render () {
     const {products} = this.props
     return <>
-    {JSON.stringify(this.state)}
       <SearchBar
         filterText={this.state.filterText}
         inStockOnly={this.state.filterText}
-        onFilterChange={this.handleFilterTextChange}
+        onFilterTextChange={this.handleFilterTextChange}
         onStockChange={this.handleInStockChange}
       />
     <ProductTable 

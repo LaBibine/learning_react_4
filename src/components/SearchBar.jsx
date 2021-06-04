@@ -17,13 +17,14 @@ class SearchBar extends React.Component {
   }
 
   render () {
+    const {filterText, inStockOnly} = this.props
     return <>
       <div className="form-group">
-        <input type="text" className="form-control" placeholder="Rechercher" onChange={() => this.handleFilterTextChange}/>
+        <input type="text" className="form-control" value={filterText} placeholder="Rechercher" onChange={this.handleFilterTextChange}/>
       </div>
       <div className="form-check">
         <label htmlFor="checkbox" className="form-check-label">Produit en stock seulement</label>
-        <input type="checkbox" className="form-check-input" id="stock" onChange={ () => this.handleInStockChange}/>
+        <input type="checkbox"  checked={inStockOnly} className="form-check-input" id="stock" onChange={this.handleInStockChange}/>
       </div>
     </>
   }
